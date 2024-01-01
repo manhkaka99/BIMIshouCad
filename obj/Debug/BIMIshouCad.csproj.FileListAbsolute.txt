@@ -1,0 +1,7 @@
+C:\Users\Admin\Desktop\BIMIshouCad\obj\Debug\BIMIshouCad.csproj.AssemblyReference.cache
+C:\Users\Admin\Desktop\BIMIshouCad\obj\Debug\BIMIshouCad.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Desktop\BIMIshouCad\bin\Debug\start.scr
+C:\Users\Admin\Desktop\BIMIshouCad\bin\Debug\BIMIshouCad.dll
+C:\Users\Admin\Desktop\BIMIshouCad\bin\Debug\BIMIshouCad.pdb
+C:\Users\Admin\Desktop\BIMIshouCad\obj\Debug\BIMIshouCad.dll
+C:\Users\Admin\Desktop\BIMIshouCad\obj\Debug\BIMIshouCad.pdb
