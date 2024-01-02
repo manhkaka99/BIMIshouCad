@@ -47,7 +47,7 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="AcMPolygonMGD">
-      <HintPath>..\..\..\..\Program Files\Autodesk\AutoCAD 2020\AcMPolygonMGD.dll</HintPath>
+      <HintPath>..\..\..\..\..\Program Files\Autodesk\AutoCAD 2020\AcMPolygonMGD.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System" />

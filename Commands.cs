@@ -22,7 +22,6 @@ namespace BIMIshouCad
             SystemObjects.DynamicLinker.LoadModule(
                 "AcMPolygonObj" + Application.Version.Major + ".dbx", false, false);
         }
-
         public void Terminate() { }
 
         private static bool IsPointInside(Point3d point, Polyline pline)
@@ -59,8 +58,8 @@ namespace BIMIshouCad
 
             PromptSelectionOptions prSelOpts = new PromptSelectionOptions();
             prSelOpts.AllowDuplicates = false;
-            prSelOpts.MessageForAdding = "\nChọn đối tượng";
-            prSelOpts.MessageForRemoval = "\nChọn đối tượng muốn loại ra";
+            prSelOpts.MessageForAdding = "\nChọn đối tượng để lọc ";
+            prSelOpts.MessageForRemoval = "\nChọn đối tượng muốn loại ra ";
             prSelOpts.RejectObjectsFromNonCurrentSpace = false;
             prSelOpts.RejectObjectsOnLockedLayers = true;
             prSelOpts.RejectPaperspaceViewport = true;
@@ -112,8 +111,9 @@ namespace BIMIshouCad
                     foreach (DBObject obj in listText)
                     {
                         Point3d point = (obj as DBText).Position;
+                        String dbTextContent = (obj as DBText).TextString;
 
-                        if (IsPointInside(point, polyline) == false)
+                        if (IsPointInside(point, polyline) == false || ContainsOnlyLetters(dbTextContent))
                         {
                             obj.Erase();
                         }
@@ -130,8 +130,9 @@ namespace BIMIshouCad
                     foreach (DBObject obj in listMtext)
                     {
                         Point3d point = (obj as MText).Location;
+                        String mTextContent = (obj as MText).Contents;
 
-                        if (IsPointInside(point, polyline) == false)
+                        if (IsPointInside(point, polyline) == false || ContainsOnlyLetters(mTextContent))
                         {
                             obj.Erase();
                         }
@@ -144,6 +145,28 @@ namespace BIMIshouCad
                 tr.Commit();
             }
         }
+        private static bool ContainsOnlyLetters(string text)
+        {
+            foreach (char c in text)
+            {
+                if (!char.IsLetter(c))
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+        private static bool ContainsOnlyNumbers(string text)
+        {
+            foreach (char c in text)
+            {
+                if (!char.IsDigit(c))
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
     }
-
+    
 }
